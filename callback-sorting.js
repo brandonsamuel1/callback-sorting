@@ -6,17 +6,18 @@ var students = [
 ];
 
 students.sort(function(a,b) {
-  var nameA = a.name;
-  var nameB = b.name;
-  var nameAAge = a.age;
-  var nameBAge = b.age;
-  if (nameA === nameB && nameAAge < nameBAge) {
-    return 1;
-  } else if(nameA < nameB) {
+  if(a.name < b.name) {
     return -1;
-  } else if (nameA > nameB) {
+  } else if (a.name > b.name) {
     return 1;
   }
+  else if (a.name === b.name && a.age < b.age) {
+    return 1;
+  }
+  else if (a.name === b.name && a.age > b.age) {
+    return -1;
+  }
+
   return 0;
 });
 
